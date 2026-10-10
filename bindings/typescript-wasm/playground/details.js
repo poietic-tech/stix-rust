@@ -28,7 +28,12 @@ export function createDetails(panel, objects, { Marked, onFocus }) {
   const legend = () =>
     `<div class="legend">${Object.entries(FAMILY_COLOURS)
       .map(([f, c]) => `<span><i style="background:${escapeHtml(c)}" data-shape="${escapeHtml(FAMILY_SHAPES[f])}"></i>${escapeHtml(f)}</span>`)
-      .join("")}</div>`;
+      .join("")}</div>
+    <ul class="tier-key">
+      <li><i class="k-glow"></i>Gold: matched observations and the objects they contain.</li>
+      <li><i class="k-trace"></i>Coloured: the trail from those observations through sightings, indicators, what they indicate and who is behind it.</li>
+      <li><i class="k-dim"></i>Dim: not involved in this match.</li>
+    </ul>`;
 
   function connections(id) {
     const out = [];

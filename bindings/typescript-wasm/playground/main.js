@@ -4,6 +4,7 @@ import { irToMermaid, instructionsInOrder, isInstructionLine } from "./graph.js"
 import { spanToRange, parseErrorSpan } from "./spans.js";
 import { nextTabIndex } from "./tabs.js";
 import { bundleToGraph } from "./bundle-graph.js";
+import { objectTypesOf, nonObservableTypes } from "./pattern-types.js";
 import { traceMatch } from "./trace.js";
 import { createGraphView } from "./graph-view.js";
 import { createDetails } from "./details.js";
@@ -111,7 +112,30 @@ async function renderGraph(ir, listing) {
 function clearMatch() {
   lastTiers = null;
   graphView?.setTiers(null);
-  $("match-status").textContent = "";
+  const status = $("match-status");
+  status.textContent = "";
+  status.classList.remove("none");
+  $("pattern-hint").hidden = true;
+}
+
+function showHint(types) {
+  const hint = $("pattern-hint");
+  const bad = nonObservableTypes(types);
+  hint.replaceChildren();
+  hint.hidden = bad.length === 0;
+  if (!bad.length) return;
+  bad.forEach((t, i) => {
+    if (i) hint.append(i === bad.length - 1 ? " and " : ", ");
+    const code = document.createElement("code");
+    code.textContent = t;
+    hint.append(code);
+  });
+  hint.append(
+    bad.length === 1 ? " is not a cyber-observable object type. " : " are not cyber-observable object types. ",
+    "STIX patterns only match cyber-observable objects (files, domains, IP addresses, URLs, …) inside observed-data, so ",
+    bad.length === 1 ? "this comparison" : "these comparisons",
+    " can never match.",
+  );
 }
 
 function showGraphFallback() {
@@ -171,6 +195,7 @@ function update() {
     $("ir").textContent = irText;
     $("canonical").textContent = canonical;
     renderListing(listing);
+    showHint(objectTypesOf(ir));
     current = { text, instrs: instructionsInOrder(ir) };
     renderGraph(ir, listing);
     if (bundle) {
@@ -181,9 +206,11 @@ function update() {
         lastTiers = traceMatch(objects, ids);
         $("match-status").textContent = ids.length
           ? `${ids.length} observation${ids.length === 1 ? "" : "s"} matched`
-          : "no observations matched";
+          : "No observations matched — nothing is highlighted.";
+        $("match-status").classList.toggle("none", ids.length === 0);
       } catch (e) {
         lastTiers = null;
+        $("match-status").classList.remove("none");
         $("match-status").textContent = messageOf(e).replace(/^\[\w+\]\s?/, "");
       }
       graphView?.setTiers(lastTiers);

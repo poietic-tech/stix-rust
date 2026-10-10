@@ -88,9 +88,9 @@ export async function createGraphView(canvas, graph, { onNodeClick, dark }) {
   };
 
   return {
-    /** Show match tiers; `null` or an empty trace clears highlighting. */
+    /** Show match tiers. `null` is neutral (full colour); an empty trace dims everything. */
     setTiers(t) {
-      tiers = t && t.nodes.size > 0 ? t : null;
+      tiers = t ?? null;
       applyTiers();
     },
     focus(id) {
