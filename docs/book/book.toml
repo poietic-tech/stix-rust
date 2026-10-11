@@ -9,6 +9,6 @@ src = "src"
 command = "mdbook-mermaid"
 
 [output.html]
-git-repository-url = "https://github.com/benjamin-small/stix-rust"
+git-repository-url = "https://github.com/poietic-tech/stix-rust"
 site-url = "/stix-rust/"
 additional-js = ["mermaid.min.js", "mermaid-init.js"]

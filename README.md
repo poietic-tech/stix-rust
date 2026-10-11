@@ -3,7 +3,7 @@
 [![crates.io](https://img.shields.io/crates/v/stix-rust.svg)](https://crates.io/crates/stix-rust)
 [![PyPI](https://img.shields.io/pypi/v/stix-rust.svg)](https://pypi.org/project/stix-rust/)
 [![npm](https://img.shields.io/npm/v/%40stix-rust%2Fnode.svg)](https://www.npmjs.com/package/@stix-rust/node)
-[![docs](https://img.shields.io/badge/docs-site-blue.svg)](https://benjamin-small.github.io/stix-rust/)
+[![docs](https://img.shields.io/badge/docs-site-blue.svg)](https://poietic-tech.github.io/stix-rust/)
 [![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#license)
 [![Rust](https://img.shields.io/badge/rust-2021-orange.svg)](https://www.rust-lang.org)
 [![Status: alpha](https://img.shields.io/badge/status-alpha-yellow.svg)](#project-status)
@@ -129,8 +129,8 @@ cargo add stix-matcher      # parser + model + matching engine
 ```toml
 [dependencies]
 # by git
-stix = { git = "https://github.com/benjamin-small/stix-rust", package = "stix-rust" }
-stix-pattern = { git = "https://github.com/benjamin-small/stix-rust" }
+stix = { git = "https://github.com/poietic-tech/stix-rust", package = "stix-rust" }
+stix-pattern = { git = "https://github.com/poietic-tech/stix-rust" }
 
 # or, with the repo cloned, by path
 stix-pattern = { path = "../stix-rust/crates/stix-pattern" }

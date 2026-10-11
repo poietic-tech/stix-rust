@@ -3,7 +3,7 @@
 Issues and pull requests are welcome. The project keeps a disciplined loop: design
 specs and implementation plans live under `docs/superpowers/`, and the repository is
 divided into agent-owned areas described in
-[`AGENTS.md`](https://github.com/benjamin-small/stix-rust/blob/main/AGENTS.md) —
+[`AGENTS.md`](https://github.com/poietic-tech/stix-rust/blob/main/AGENTS.md) —
 file issues with an `area:*` label and keep PRs within one area.
 
 ## Dev commands

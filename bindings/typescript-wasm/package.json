@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/benjamin-small/stix-rust",
+    "url": "https://github.com/poietic-tech/stix-rust",
     "directory": "bindings/typescript-wasm"
   },
   "main": "dist/index.js",
