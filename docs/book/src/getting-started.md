@@ -12,7 +12,7 @@ Or from source:
 
 ```toml
 [dependencies]
-stix = { git = "https://github.com/benjamin-small/stix-rust", package = "stix-rust" }
+stix = { git = "https://github.com/poietic-tech/stix-rust", package = "stix-rust" }
 ```
 
 The package is `stix-rust`; the library name is `stix`, so code reads `use stix::…`

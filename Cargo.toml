@@ -6,7 +6,7 @@ exclude = ["bindings/python", "bindings/typescript-node", "bindings/typescript-w
 [workspace.package]
 edition = "2021"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/benjamin-small/stix-rust"
+repository = "https://github.com/poietic-tech/stix-rust"
 
 [workspace.dependencies]
 serde = { version = "1", features = ["derive"] }

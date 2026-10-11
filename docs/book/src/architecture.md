@@ -70,5 +70,5 @@ identical.
 
 The repository is organized into agent-owned areas (core, one per binding) with an
 ownership map and issue workflow in
-[`AGENTS.md`](https://github.com/benjamin-small/stix-rust/blob/main/AGENTS.md);
+[`AGENTS.md`](https://github.com/poietic-tech/stix-rust/blob/main/AGENTS.md);
 design specs and implementation plans live under `docs/superpowers/`.
